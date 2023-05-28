@@ -5,7 +5,7 @@ export interface LoginState {
   password: string;
 }
 
-interface LoginProps {
+export interface LoginProps {
   formData: LoginState;
   setFormData: React.Dispatch<React.SetStateAction<LoginState>>;
   onLogin: () => void;

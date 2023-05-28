@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Registration.css";
+
 interface RegistrationState {
   fName: string;
   mName: string;
@@ -11,6 +13,7 @@ interface RegistrationState {
 }
 
 const Registration: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<RegistrationState>({
     fName: "",
     mName: "",
@@ -58,7 +61,8 @@ const Registration: React.FC = () => {
         country: "",
       });
       setError("");
-      console.log("Registration successful!");
+    window.alert("succesfully registered!")
+      navigate("/"); // Redirect to the home page
     } catch (error: any) {
       setError(
         error.message ||
@@ -66,6 +70,9 @@ const Registration: React.FC = () => {
       );
       console.error(error);
     }
+  };
+  const handleLogin = () => {
+    navigate("/New"); // Redirect to the login page
   };
 
   return (
@@ -83,7 +90,6 @@ const Registration: React.FC = () => {
                 name="fName"
                 value={formData.fName}
                 onChange={handleChange}
-                
               />
             </div>
             <div className="mb-3">
@@ -149,7 +155,10 @@ const Registration: React.FC = () => {
             <button type="submit" className="btn btn-primary">
               Register
             </button>
-          </form>
+          </form><br/>
+          <button className="popup-login" onClick={handleLogin}>
+              Login
+            </button>
         </div>
       </div>
     </div>
