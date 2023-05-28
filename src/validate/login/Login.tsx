@@ -11,7 +11,7 @@ export interface LoginProps {
   onLogin: () => void;
 }
 
-const Login: React.FC<LoginProps> = ({ formData, setFormData, onLogin }) => {
+const Login: React.FC<LoginProps> = ({ formData, setFormData }) => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
